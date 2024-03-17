@@ -229,4 +229,18 @@ impl Cpu {
     pub fn get_sp(&mut self, v : u16) -> u16 {
         self.sp = v
     }
+
+    // Pushes a 16-bit value to the stack
+    pub fn push(&mut self, mmu : &mut Mmu, v : u16) {
+        let p = self.get_sp().wrapping_sub(2);
+        self.set_sp(self.get_sp().wrapping_sub(2));
+        mmu.set16(p, v);
+    }
+
+    // Pops a 16-bit value to the stack
+    pub fn pop(&mut self, mmu : &mut Mmu) -> u16{
+        let p = self.get_sp();
+        self.set_sp(self.get_sp().wrapping_add(2));
+        mmu.get16(p);
+    }
 }
