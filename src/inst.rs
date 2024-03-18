@@ -2417,3 +2417,3562 @@ fn op_00a6(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
 
     (4, 1)
 }
+
+// xor b
+#[allow(unused_variables)]
+fn op_00a8(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    cpu_get_a(cpu.get_a() ^ cpu.get_b());
+    let z = cpu.get_a() == 0;
+
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (4, 1)
+}
+
+// xor c
+#[allow(unused_variables)]
+fn op_00a9(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    cpu_get_a(cpu.get_a() ^ cpu.get_c());
+    let z = cpu.get_a() == 0;
+
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (4, 1)
+}
+
+// xor d
+#[allow(unused_variables)]
+fn op_00aa(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    cpu_get_a(cpu.get_a() ^ cpu.get_d());
+    let z = cpu.get_a() == 0;
+
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (4, 1)
+}
+
+// xor e
+#[allow(unused_variables)]
+fn op_00ab(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    cpu_get_a(cpu.get_a() ^ cpu.get_e());
+    let z = cpu.get_a() == 0;
+
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (4, 1)
+}
+
+// xor h
+#[allow(unused_variables)]
+fn op_00ac(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    cpu_get_a(cpu.get_a() ^ cpu.get_h());
+    let z = cpu.get_a() == 0;
+
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (4, 1)
+}
+
+// xor l
+#[allow(unused_variables)]
+fn op_00ad(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    cpu_get_a(cpu.get_a() ^ cpu.get_l());
+    let z = cpu.get_a() == 0;
+
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (4, 1)
+}
+
+// xor a
+#[allow(unused_variables)]
+fn op_00af(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    cpu_get_a(cpu.get_a() ^ cpu.get_a());
+    let z = cpu.get_a() == 0;
+
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (4, 1)
+}
+
+// xor d8
+#[allow(unused_variables)]
+fn op_00ee(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    cpu.set_a(cpu.get_a() ^ mmu.get8(cpu.get_pc().wrapping_add(arg)));
+    let z = cpu.get_a() == 0;
+
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (8, 2)
+}
+
+// xor (hl)
+#[allow(unused_variables)]
+fn op_00ae(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    cpu.set_a(cpu.get_a() ^ mmu.get8(cpu.get_hl()));
+    let z = cpu.get_a() == 0;
+
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (4, 1)
+}
+
+// or b
+#[allow(unused_variables)]
+fn op_00b0(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    cpu_get_a(cpu.get_a() | cpu.get_b());
+    let z = cpu.get_a() == 0;
+
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (4, 1)
+}
+
+// or c
+#[allow(unused_variables)]
+fn op_00b1(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    cpu_get_a(cpu.get_a() | cpu.get_c());
+    let z = cpu.get_a() == 0;
+
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (4, 1)
+}
+
+// or d
+#[allow(unused_variables)]
+fn op_00b2(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    cpu_get_a(cpu.get_a() | cpu.get_d());
+    let z = cpu.get_a() == 0;
+
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (4, 1)
+}
+
+// or e
+#[allow(unused_variables)]
+fn op_00b3(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    cpu_get_a(cpu.get_a() | cpu.get_e());
+    let z = cpu.get_a() == 0;
+
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (4, 1)
+}
+
+// or h
+#[allow(unused_variables)]
+fn op_00b4(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    cpu_get_a(cpu.get_a() | cpu.get_h());
+    let z = cpu.get_a() == 0;
+
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (4, 1)
+}
+
+// or l
+#[allow(unused_variables)]
+fn op_00b5(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    cpu_get_a(cpu.get_a() | cpu.get_l());
+    let z = cpu.get_a() == 0;
+
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (4, 1)
+}
+
+// or a
+#[allow(unused_variables)]
+fn op_00b7(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    cpu_get_a(cpu.get_a() | cpu.get_a());
+    let z = cpu.get_a() == 0;
+
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (4, 1)
+}
+
+// or d8
+#[allow(unused_variables)]
+fn op_00f6(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    cpu.set_a(cpu.get_a() | mmu.get8(cpu.get_pc().wrapping_add(arg)));
+    let z = cpu.get_a() == 0;
+
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (8, 2)
+}
+
+// or (hl)
+#[allow(unused_variables)]
+fn op_00b6(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    cpu.set_a(cpu.get_a() | mmu.get8(cpu.get_hl()));
+    let z = cpu.get_a() == 0;
+
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (4, 1)
+}
+
+// cpl
+#[allow(unused_variables)]
+fn op_00b6(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    cpu.set_a(cpu.get_a() ^ 0xff);
+
+    cpu.set_nf(true);
+    cpu.set_hf(true);
+
+    (4, 1)
+}
+
+// forward
+// daa
+#[allow(unused_variables)]
+fn op_00b6(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let mut adj = 0;
+
+    let v = cpu.get_a() as usize;
+
+    if cpu.get_hf() || (!cpu.get_nf() && (v & 0xf) > 9) {
+        adj |= 0x6;
+    }
+
+    let c = if cpu.get_cf() || (!cpu.get_nf() && v > 0x99) {
+        adj |= 0x60;
+        true
+    } else {
+        false
+    };
+
+    let v = if cpu.get_nf() { v - adj } else { v + adj };
+    let v = (v & 0xff) as u8;
+    let z = v == 0;
+
+    cpu.set_a(v);
+    cpu.set_zf(z);
+
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (4, 1)
+}
+
+// scf
+#[allow(unused_variables)]
+fn op_0037(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    cpu.set_cf(true);
+
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(true);
+
+    (4, 1)
+}
+
+// ccf
+#[allow(unused_variables)]
+fn op_0037(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let c = !cpu.get_cf();
+
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (4, 1)
+}
+
+// rlc b
+#[allow(unused_variables)]
+fn op_cb00(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_b();
+    let c = v & 0x80 != 0;
+    let v = v.rotate_left(1);
+    let z = v == 0;
+    cpu.set_b(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rlc c
+#[allow(unused_variables)]
+fn op_cb01(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_c();
+    let c = v & 0x80 != 0;
+    let v = v.rotate_left(1);
+    let z = v == 0;
+    cpu.set_c(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rlc d
+#[allow(unused_variables)]
+fn op_cb02(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_d();
+    let c = v & 0x80 != 0;
+    let v = v.rotate_left(1);
+    let z = v == 0;
+    cpu.set_d(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rlc e
+#[allow(unused_variables)]
+fn op_cb03(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_e();
+    let c = v & 0x80 != 0;
+    let v = v.rotate_left(1);
+    let z = v == 0;
+    cpu.set_e(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rlc h
+#[allow(unused_variables)]
+fn op_cb04(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_h();
+    let c = v & 0x80 != 0;
+    let v = v.rotate_left(1);
+    let z = v == 0;
+    cpu.set_h(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rlc l
+#[allow(unused_variables)]
+fn op_cb05(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_l();
+    let c = v & 0x80 != 0;
+    let v = v.rotate_left(1);
+    let z = v == 0;
+    cpu.set_l(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rlc (hl)
+#[allow(unused_variables)]
+fn op_cb06(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = mmu.get8(cpu.get_hl());
+    let c = v & 0x80 != 0;
+    let v = v.rotate_left(1);
+    let z = v == 0;
+    mmu.set8(cpu.get_hl(), v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (16, 2)
+}
+
+// rlc a
+#[allow(unused_variables)]
+fn op_cb07(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_a();
+    let c = v & 0x80 != 0;
+    let v = v.rotate_left(1);
+    let z = v == 0;
+    cpu.set_a(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rrc b
+#[allow(unused_variables)]
+fn op_cb08(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_b();
+    let c = v & 0x80 != 0;
+    let v = v.rotate_right(1);
+    let z = v == 0;
+    cpu.set_b(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rrc c
+#[allow(unused_variables)]
+fn op_cb09(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_c();
+    let c = v & 0x80 != 0;
+    let v = v.rotate_right(1);
+    let z = v == 0;
+    cpu.set_c(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rrc d
+#[allow(unused_variables)]
+fn op_cb0a(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_d();
+    let c = v & 0x80 != 0;
+    let v = v.rotate_right(1);
+    let z = v == 0;
+    cpu.set_d(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rrc e
+#[allow(unused_variables)]
+fn op_cb0b(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_e();
+    let c = v & 0x80 != 0;
+    let v = v.rotate_right(1);
+    let z = v == 0;
+    cpu.set_e(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rrc h
+#[allow(unused_variables)]
+fn op_cb0c(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_h();
+    let c = v & 0x80 != 0;
+    let v = v.rotate_right(1);
+    let z = v == 0;
+    cpu.set_h(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rrc l
+#[allow(unused_variables)]
+fn op_cb0d(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_l();
+    let c = v & 0x80 != 0;
+    let v = v.rotate_right(1);
+    let z = v == 0;
+    cpu.set_l(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rrc (hl)
+#[allow(unused_variables)]
+fn op_cb0e(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = mmu.get8(cpu.get_hl());
+    let c = v & 0x80 != 0;
+    let v = v.rotate_right(1);
+    let z = v == 0;
+    mmu.set8(cpu.get_hl(), v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (16, 2)
+}
+
+// rrc a
+#[allow(unused_variables)]
+fn op_cb0f(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_a();
+    let c = v & 0x80 != 0;
+    let v = v.rotate_right(1);
+    let z = v == 0;
+    cpu.set_a(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rl b
+#[allow(unused_variables)]
+fn op_cb10(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_b();
+    let c = v & 0x80 != 0;
+    let v = v.wrapping_shl(1);
+    let v = v | if cpu.get_cf() { 1 } else { 0 };
+    let z = v == 0;
+    cpu.set_b(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rl c
+#[allow(unused_variables)]
+fn op_cb11(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_c();
+    let c = v & 0x80 != 0;
+    let v = v.wrapping_shl(1);
+    let v = v | if cpu.get_cf() { 1 } else { 0 };
+    let z = v == 0;
+    cpu.set_c(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rl d
+#[allow(unused_variables)]
+fn op_cb12(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_d();
+    let c = v & 0x80 != 0;
+    let v = v.wrapping_shl(1);
+    let v = v | if cpu.get_cf() { 1 } else { 0 };
+    let z = v == 0;
+    cpu.set_d(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rl e
+#[allow(unused_variables)]
+fn op_cb13(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_e();
+    let c = v & 0x80 != 0;
+    let v = v.wrapping_shl(1);
+    let v = v | if cpu.get_cf() { 1 } else { 0 };
+    let z = v == 0;
+    cpu.set_e(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rl h
+#[allow(unused_variables)]
+fn op_cb14(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_h();
+    let c = v & 0x80 != 0;
+    let v = v.wrapping_shl(1);
+    let v = v | if cpu.get_cf() { 1 } else { 0 };
+    let z = v == 0;
+    cpu.set_h(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rl l
+#[allow(unused_variables)]
+fn op_cb15(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_l();
+    let c = v & 0x80 != 0;
+    let v = v.wrapping_shl(1);
+    let v = v | if cpu.get_cf() { 1 } else { 0 };
+    let z = v == 0;
+    cpu.set_l(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rl (hl)
+#[allow(unused_variables)]
+fn op_cb16(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = mmu.get8(cpu.get_hl());
+    let c = v & 0x80 != 0;
+    let v = v.wrapping_shl(1);
+    let v = v | if cpu.get_cf() { 1 } else { 0 };
+    let z = v == 0;
+    mmu.set8(cpu.get_hl(), v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (16, 2)
+}
+
+// rl a
+#[allow(unused_variables)]
+fn op_cb17(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_a();
+    let c = v & 0x80 != 0;
+    let v = v.wrapping_shl(1);
+    let v = v | if cpu.get_cf() { 1 } else { 0 };
+    let z = v == 0;
+    cpu.set_a(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rr b
+#[allow(unused_variables)]
+fn op_cb18(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_b();
+    let c = v & 1 != 0;
+    let v = v.wrapping_shr(1);
+    let v = v | if cpu.get_cf() { 0x80 } else { 0 };
+    let z = v == 0;
+    cpu.set_b(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rr c
+#[allow(unused_variables)]
+fn op_cb19(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_c();
+    let c = v & 1 != 0;
+    let v = v.wrapping_shl(1);
+    let v = v | if cpu.get_cf() { 0x80 } else { 0 };
+    let z = v == 0;
+    cpu.set_c(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rr d
+#[allow(unused_variables)]
+fn op_cb1a(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_d();
+    let c = v & 1 != 0;
+    let v = v.wrapping_shr(1);
+    let v = v | if cpu.get_cf() { 0x80 } else { 0 };
+    let z = v == 0;
+    cpu.set_d(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rr e
+#[allow(unused_variables)]
+fn op_cb1b(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_e();
+    let c = v & 1 != 0;
+    let v = v.wrapping_shr(1);
+    let v = v | if cpu.get_cf() { 0x80 } else { 0 };
+    let z = v == 0;
+    cpu.set_e(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rr h
+#[allow(unused_variables)]
+fn op_cb1c(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_h();
+    let c = v & 1 != 0;
+    let v = v.wrapping_shr(1);
+    let v = v | if cpu.get_cf() { 0x80 } else { 0 };
+    let z = v == 0;
+    cpu.set_h(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rr l
+#[allow(unused_variables)]
+fn op_cb1d(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_l();
+    let c = v & 1 != 0;
+    let v = v.wrapping_shr(1);
+    let v = v | if cpu.get_cf() { 0x80 } else { 0 };
+    let z = v == 0;
+    cpu.set_l(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// rr (hl)
+#[allow(unused_variables)]
+fn op_cb1e(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = mmu.get8(cpu.get_hl());
+    let c = v & 1 != 0;
+    let v = v.wrapping_shl(1);
+    let v = v | if cpu.get_cf() { 0x80 } else { 0 };
+    let z = v == 0;
+    mmu.set8(cpu.get_hl(), v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (16, 2)
+}
+
+// rr a
+#[allow(unused_variables)]
+fn op_cb1f(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_a();
+    let c = v & 1 != 0;
+    let v = v.wrapping_shr(1);
+    let v = v | if cpu.get_cf() { 0x80 } else { 0 };
+    let z = v == 0;
+    cpu.set_a(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// sla b
+#[allow(unused_variables)]
+fn op_cb20(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_b();
+    let c = v & 0x80 != 0;
+    let v = v.wrapping_shl(1);
+    let z = v == 0;
+    cpu.set_b(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// sla c
+#[allow(unused_variables)]
+fn op_cb21(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_c();
+    let c = v & 0x80 != 0;
+    let v = v.wrapping_shl(1);
+    let z = v == 0;
+    cpu.set_c(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// sla d
+#[allow(unused_variables)]
+fn op_cb22(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_d();
+    let c = v & 0x80 != 0;
+    let v = v.wrapping_shl(1);
+    let z = v == 0;
+    cpu.set_d(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// sla e
+#[allow(unused_variables)]
+fn op_cb23(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_e();
+    let c = v & 0x80 != 0;
+    let v = v.wrapping_shl(1);
+    let z = v == 0;
+    cpu.set_e(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// sla h
+#[allow(unused_variables)]
+fn op_cb24(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_h();
+    let c = v & 0x80 != 0;
+    let v = v.wrapping_shl(1);
+    let z = v == 0;
+    cpu.set_h(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// sla l
+#[allow(unused_variables)]
+fn op_cb25(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_l();
+    let c = v & 0x80 != 0;
+    let v = v.wrapping_shl(1);
+    let z = v == 0;
+    cpu.set_l(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// sla (hl)
+#[allow(unused_variables)]
+fn op_cb16(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = mmu.get8(cpu.get_hl());
+    let c = v & 0x80 != 0;
+    let v = v.wrapping_shl(1);
+    let z = v == 0;
+    mmu.set8(cpu.get_hl(), v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (16, 2)
+}
+
+// sla a
+#[allow(unused_variables)]
+fn op_cb27(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_a();
+    let c = v & 0x80 != 0;
+    let v = v.wrapping_shl(1);
+    let z = v == 0;
+    cpu.set_a(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// sra b
+#[allow(unused_variables)]
+fn op_cb28(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_b();
+    let c = v & 1 != 0;
+    let msb = v & 0x80;
+    let v = v.wrapping_shr(1);
+    let v = v | msb;
+    let z = v == 0;
+    cpu.set_b(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// sra c
+#[allow(unused_variables)]
+fn op_cb29(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_c();
+    let c = v & 1 != 0;
+    let msb = v & 0x80;
+    let v = v.wrapping_shr(1);
+    let v = v | msb;
+    let z = v == 0;
+    cpu.set_c(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// sra d
+#[allow(unused_variables)]
+fn op_cb2a(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_d();
+    let c = v & 1 != 0;
+    let msb = v & 0x80;
+    let v = v.wrapping_shr(1);
+    let v = v | msb;
+    let z = v == 0;
+    cpu.set_d(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// sra e
+#[allow(unused_variables)]
+fn op_cb2b(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_e();
+    let c = v & 1 != 0;
+    let msb = v & 0x80;
+    let v = v.wrapping_shr(1);
+    let v = v | msb;
+    let z = v == 0;
+    cpu.set_e(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// sra h
+#[allow(unused_variables)]
+fn op_cb2c(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_h();
+    let c = v & 1 != 0;
+    let msb = v & 0x80;
+    let v = v.wrapping_shr(1);
+    let v = v | msb;
+    let z = v == 0;
+    cpu.set_h(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// sra l
+#[allow(unused_variables)]
+fn op_cb2d(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_l();
+    let c = v & 1 != 0;
+    let msb = v & 0x80;
+    let v = v.wrapping_shr(1);
+    let v = v | msb;
+    let z = v == 0;
+    cpu.set_l(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// sra (hl)
+#[allow(unused_variables)]
+fn op_cb2e(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = mmu.get8(cpu.get_hl());
+    let c = v & 1 != 0;
+    let msb = v & 0x80;
+    let v = v.wrapping_shr(1);
+    let v = v | msb;
+    let z = v == 0;
+    mmu.set8(cpu.get_hl(), v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (16, 2)
+}
+
+// sra a
+#[allow(unused_variables)]
+fn op_cb2f(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_a();
+    let c = v & 1 != 0;
+    let msb = v & 0x80;
+    let v = v.wrapping_shr(1);
+    let v = v | msb;
+    let z = v == 0;
+    cpu.set_a(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// swap b
+#[allow(unused_variables)]
+fn op_cb30(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_b();
+    let v = v.rotate_left(4);
+    cpu.set_b(v);
+    let z = v == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (8, 2)
+}
+
+// swap c
+#[allow(unused_variables)]
+fn op_cb31(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_c();
+    let v = v.rotate_left(4);
+    cpu.set_c(v);
+    let z = v == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (8, 2)
+}
+
+// swap d
+#[allow(unused_variables)]
+fn op_cb32(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_d();
+    let v = v.rotate_left(4);
+    cpu.set_d(v);
+    let z = v == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (8, 2)
+}
+
+// swap e
+#[allow(unused_variables)]
+fn op_cb33(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_e();
+    let v = v.rotate_left(4);
+    cpu.set_e(v);
+    let z = v == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (8, 2)
+}
+
+// swap h
+#[allow(unused_variables)]
+fn op_cb34(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_h();
+    let v = v.rotate_left(4);
+    cpu.set_h(v);
+    let z = v == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (8, 2)
+}
+
+// swap l
+#[allow(unused_variables)]
+fn op_cb35(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_l();
+    let v = v.rotate_left(4);
+    cpu.set_l(v);
+    let z = v == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (8, 2)
+}
+
+// swap hl
+#[allow(unused_variables)]
+fn op_cb36(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = mmu.get8(cpu.get_hl());
+    let v = v.rotate_left(4);
+    mmu.set8(cpu.get_hl(), v);
+    let z = v == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (16, 2)
+}
+
+// swap a
+#[allow(unused_variables)]
+fn op_cb37(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_a();
+    let v = v.rotate_left(4);
+    cpu.set_a(v);
+    let z = v == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(false);
+
+    (8, 2)
+}
+
+// srl b
+#[allow(unused_variables)]
+fn op_cb38(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_b();
+    let c = v & 1 != 0;
+    let v = v.wrapping_shr(1);
+    let z = v == 0;
+    cpu.set_b(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// srl c
+#[allow(unused_variables)]
+fn op_cb39(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_c();
+    let c = v & 1 != 0;
+    let v = v.wrapping_shr(1);
+    let z = v == 0;
+    cpu.set_c(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// srl d
+#[allow(unused_variables)]
+fn op_cb3a(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_d();
+    let c = v & 1 != 0;
+    let v = v.wrapping_shr(1);
+    let z = v == 0;
+    cpu.set_d(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// srl e
+#[allow(unused_variables)]
+fn op_cb3b(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_e();
+    let c = v & 1 != 0;
+    let v = v.wrapping_shr(1);
+    let z = v == 0;
+    cpu.set_e(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// srl h
+#[allow(unused_variables)]
+fn op_cb3c(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_h();
+    let c = v & 1 != 0;
+    let v = v.wrapping_shr(1);
+    let z = v == 0;
+    cpu.set_h(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// srl l
+#[allow(unused_variables)]
+fn op_cb3d(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_l();
+    let c = v & 1 != 0;
+    let v = v.wrapping_shr(1);
+    let z = v == 0;
+    cpu.set_l(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// srl (hl)
+#[allow(unused_variables)]
+fn op_cb3e(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = mmu.get8(cpu.get_hl());
+    let c = v & 1 != 0;
+    let v = v.wrapping_shr(1);
+    let z = v == 0;
+    mmu.set8(cpu.get_hl(), v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (16, 2)
+}
+
+// srl a
+#[allow(unused_variables)]
+fn op_cb3f(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_a();
+    let c = v & 1 != 0;
+    let v = v.wrapping_shr(1);
+    let z = v == 0;
+    cpu.set_a(v);
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (8, 2)
+}
+
+// bit 0,b
+#[allow(unused_variables)]
+fn op_cb40(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_b();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 0,c
+#[allow(unused_variables)]
+fn op_cb41(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_c();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 0,d
+#[allow(unused_variables)]
+fn op_cb42(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_d();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 0,e
+#[allow(unused_variables)]
+fn op_cb43(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_e();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 0,h
+#[allow(unused_variables)]
+fn op_cb44(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_h();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 0,l
+#[allow(unused_variables)]
+fn op_cb45(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_l();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 0,(hl)
+#[allow(unused_variables)]
+fn op_cb46(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = mmu.get8(cpu.get_hl());
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (12, 2)
+}
+
+// bit 0,a
+#[allow(unused_variables)]
+fn op_cb47(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_a();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 1,b
+#[allow(unused_variables)]
+fn op_cb48(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_b();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 1,c
+#[allow(unused_variables)]
+fn op_cb49(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_c();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 1,d
+#[allow(unused_variables)]
+fn op_cb4a(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_d();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 1,e
+#[allow(unused_variables)]
+fn op_cb4b(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_e();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 1,h
+#[allow(unused_variables)]
+fn op_cb4c(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_h();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 1,l
+#[allow(unused_variables)]
+fn op_cb4d(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_l();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 1,(hl)
+#[allow(unused_variables)]
+fn op_cb4e(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = mmu.get8(cpu.get_hl());
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (12, 2)
+}
+
+// bit 1,a
+#[allow(unused_variables)]
+fn op_cb4f(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_a();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 2,b
+#[allow(unused_variables)]
+fn op_cb50(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_b();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 2,c
+#[allow(unused_variables)]
+fn op_cb51(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_c();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 2,d
+#[allow(unused_variables)]
+fn op_cb52(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_d();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 2,e
+#[allow(unused_variables)]
+fn op_cb53(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_e();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 2,h
+#[allow(unused_variables)]
+fn op_cb54(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_h();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 2,l
+#[allow(unused_variables)]
+fn op_cb55(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_l();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 2,(hl)
+#[allow(unused_variables)]
+fn op_cb56(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = mmu.get8(cpu.get_hl());
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (12, 2)
+}
+
+// bit 2,a
+#[allow(unused_variables)]
+fn op_cb57(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_a();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 3,b
+#[allow(unused_variables)]
+fn op_cb58(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_b();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 3,c
+#[allow(unused_variables)]
+fn op_cb59(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_c();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 3,d
+#[allow(unused_variables)]
+fn op_cb5a(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_d();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 3,e
+#[allow(unused_variables)]
+fn op_cb5b(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_e();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 3,h
+#[allow(unused_variables)]
+fn op_cb5c(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_h();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 3,l
+#[allow(unused_variables)]
+fn op_cb5d(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_l();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 3,(hl)
+#[allow(unused_variables)]
+fn op_cb5e(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = mmu.get8(cpu.get_hl());
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (12, 2)
+}
+
+// bit 3,a
+#[allow(unused_variables)]
+fn op_cb5f(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_a();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 4,b
+#[allow(unused_variables)]
+fn op_cb60(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_b();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 4,c
+#[allow(unused_variables)]
+fn op_cb61(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_c();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 4,d
+#[allow(unused_variables)]
+fn op_cb62(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_d();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 4,e
+#[allow(unused_variables)]
+fn op_cb63(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_e();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 4,h
+#[allow(unused_variables)]
+fn op_cb64(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_h();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 4,l
+#[allow(unused_variables)]
+fn op_cb65(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_l();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 4,(hl)
+#[allow(unused_variables)]
+fn op_cb66(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = mmu.get8(cpu.get_hl());
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (12, 2)
+}
+
+// bit 4,a
+#[allow(unused_variables)]
+fn op_cb67(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_a();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 5,b
+#[allow(unused_variables)]
+fn op_cb68(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_b();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 5,c
+#[allow(unused_variables)]
+fn op_cb69(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_c();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 5,d
+#[allow(unused_variables)]
+fn op_cb6a(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_d();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 5,e
+#[allow(unused_variables)]
+fn op_cb6b(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_e();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 5,h
+#[allow(unused_variables)]
+fn op_cb6c(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_h();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 5,l
+#[allow(unused_variables)]
+fn op_cb6d(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_l();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 5,(hl)
+#[allow(unused_variables)]
+fn op_cb6e(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = mmu.get8(cpu.get_hl());
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (12, 2)
+}
+
+// bit 5,a
+#[allow(unused_variables)]
+fn op_cb6f(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_a();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 6,b
+#[allow(unused_variables)]
+fn op_cb70(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_b();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 6,c
+#[allow(unused_variables)]
+fn op_cb71(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_c();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 6,d
+#[allow(unused_variables)]
+fn op_cb72(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_d();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 6,e
+#[allow(unused_variables)]
+fn op_cb73(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_e();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 6,h
+#[allow(unused_variables)]
+fn op_cb74(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_h();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 6,l
+#[allow(unused_variables)]
+fn op_cb75(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_l();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 6,(hl)
+#[allow(unused_variables)]
+fn op_cb76(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = mmu.get8(cpu.get_hl());
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (12, 2)
+}
+
+// bit 6,a
+#[allow(unused_variables)]
+fn op_cb77(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_a();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 7,b
+#[allow(unused_variables)]
+fn op_cb78(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_b();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 7,c
+#[allow(unused_variables)]
+fn op_cb79(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_c();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 7,d
+#[allow(unused_variables)]
+fn op_cb7a(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_d();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 7,e
+#[allow(unused_variables)]
+fn op_cb7b(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_e();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 7,h
+#[allow(unused_variables)]
+fn op_cb7c(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_h();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 7,l
+#[allow(unused_variables)]
+fn op_cb7d(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_l();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+// bit 7,(hl)
+#[allow(unused_variables)]
+fn op_cb7e(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = mmu.get8(cpu.get_hl());
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (12, 2)
+}
+
+// bit 7,a
+#[allow(unused_variables)]
+fn op_cb7f(arg : u16, cpu : &mut Cpu, mmu : &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_a();
+    let z = q & (1 << p) == 0;
+    cpu.set_zf(z);
+    cpu.set_nf(false);
+    cpu.set_hf(true);
+
+    (8, 2)
+}
+
+/// res 0,b
+#[allow(unused_variables)]
+fn op_cb80(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_b();
+    cpu.set_b(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 0,c
+#[allow(unused_variables)]
+fn op_cb81(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_c();
+    cpu.set_c(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 0,d
+#[allow(unused_variables)]
+fn op_cb82(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_d();
+    cpu.set_d(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 0,e
+#[allow(unused_variables)]
+fn op_cb83(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_e();
+    cpu.set_e(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 0,h
+#[allow(unused_variables)]
+fn op_cb84(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_h();
+    cpu.set_h(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 0,l
+#[allow(unused_variables)]
+fn op_cb85(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_l();
+    cpu.set_l(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 0,(hl)
+#[allow(unused_variables)]
+fn op_cb86(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = mmu.get8(cpu.get_hl());
+    mmu.set8(cpu.get_hl(), q & !(1 << p));
+
+    (16, 2)
+}
+
+/// res 0,a
+#[allow(unused_variables)]
+fn op_cb87(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_a();
+    cpu.set_a(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 1,b
+#[allow(unused_variables)]
+fn op_cb88(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_b();
+    cpu.set_b(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 1,c
+#[allow(unused_variables)]
+fn op_cb89(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_c();
+    cpu.set_c(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 1,d
+#[allow(unused_variables)]
+fn op_cb8a(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_d();
+    cpu.set_d(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 1,e
+#[allow(unused_variables)]
+fn op_cb8b(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_e();
+    cpu.set_e(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 1,h
+#[allow(unused_variables)]
+fn op_cb8c(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_h();
+    cpu.set_h(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 1,l
+#[allow(unused_variables)]
+fn op_cb8d(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_l();
+    cpu.set_l(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 1,(hl)
+#[allow(unused_variables)]
+fn op_cb8e(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = mmu.get8(cpu.get_hl());
+    mmu.set8(cpu.get_hl(), q & !(1 << p));
+
+    (16, 2)
+}
+
+/// res 1,a
+#[allow(unused_variables)]
+fn op_cb8f(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_a();
+    cpu.set_a(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 2,b
+#[allow(unused_variables)]
+fn op_cb90(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_b();
+    cpu.set_b(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 2,c
+#[allow(unused_variables)]
+fn op_cb91(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_c();
+    cpu.set_c(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 2,d
+#[allow(unused_variables)]
+fn op_cb92(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_d();
+    cpu.set_d(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 2,e
+#[allow(unused_variables)]
+fn op_cb93(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_e();
+    cpu.set_e(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 2,h
+#[allow(unused_variables)]
+fn op_cb94(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_h();
+    cpu.set_h(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 2,l
+#[allow(unused_variables)]
+fn op_cb95(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_l();
+    cpu.set_l(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 2,(hl)
+#[allow(unused_variables)]
+fn op_cb96(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = mmu.get8(cpu.get_hl());
+    mmu.set8(cpu.get_hl(), q & !(1 << p));
+
+    (16, 2)
+}
+
+/// res 2,a
+#[allow(unused_variables)]
+fn op_cb97(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_a();
+    cpu.set_a(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 3,b
+#[allow(unused_variables)]
+fn op_cb98(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_b();
+    cpu.set_b(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 3,c
+#[allow(unused_variables)]
+fn op_cb99(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_c();
+    cpu.set_c(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 3,d
+#[allow(unused_variables)]
+fn op_cb9a(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_d();
+    cpu.set_d(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 3,e
+#[allow(unused_variables)]
+fn op_cb9b(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_e();
+    cpu.set_e(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 3,h
+#[allow(unused_variables)]
+fn op_cb9c(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_h();
+    cpu.set_h(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 3,l
+#[allow(unused_variables)]
+fn op_cb9d(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_l();
+    cpu.set_l(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 3,(hl)
+#[allow(unused_variables)]
+fn op_cb9e(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = mmu.get8(cpu.get_hl());
+    mmu.set8(cpu.get_hl(), q & !(1 << p));
+
+    (16, 2)
+}
+
+/// res 3,a
+#[allow(unused_variables)]
+fn op_cb9f(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_a();
+    cpu.set_a(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 4,b
+#[allow(unused_variables)]
+fn op_cba0(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_b();
+    cpu.set_b(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 4,c
+#[allow(unused_variables)]
+fn op_cba1(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_c();
+    cpu.set_c(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 4,d
+#[allow(unused_variables)]
+fn op_cba2(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_d();
+    cpu.set_d(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 4,e
+#[allow(unused_variables)]
+fn op_cba3(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_e();
+    cpu.set_e(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 4,h
+#[allow(unused_variables)]
+fn op_cba4(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_h();
+    cpu.set_h(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 4,l
+#[allow(unused_variables)]
+fn op_cba5(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_l();
+    cpu.set_l(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 4,(hl)
+#[allow(unused_variables)]
+fn op_cba6(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = mmu.get8(cpu.get_hl());
+    mmu.set8(cpu.get_hl(), q & !(1 << p));
+
+    (16, 2)
+}
+
+/// res 4,a
+#[allow(unused_variables)]
+fn op_cba7(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_a();
+    cpu.set_a(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 5,b
+#[allow(unused_variables)]
+fn op_cba8(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_b();
+    cpu.set_b(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 5,c
+#[allow(unused_variables)]
+fn op_cba9(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_c();
+    cpu.set_c(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 5,d
+#[allow(unused_variables)]
+fn op_cbaa(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_d();
+    cpu.set_d(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 5,e
+#[allow(unused_variables)]
+fn op_cbab(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_e();
+    cpu.set_e(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 5,h
+#[allow(unused_variables)]
+fn op_cbac(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_h();
+    cpu.set_h(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 5,l
+#[allow(unused_variables)]
+fn op_cbad(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_l();
+    cpu.set_l(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 5,(hl)
+#[allow(unused_variables)]
+fn op_cbae(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = mmu.get8(cpu.get_hl());
+    mmu.set8(cpu.get_hl(), q & !(1 << p));
+
+    (16, 2)
+}
+
+/// res 5,a
+#[allow(unused_variables)]
+fn op_cbaf(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_a();
+    cpu.set_a(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 6,b
+#[allow(unused_variables)]
+fn op_cbb0(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_b();
+    cpu.set_b(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 6,c
+#[allow(unused_variables)]
+fn op_cbb1(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_c();
+    cpu.set_c(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 6,d
+#[allow(unused_variables)]
+fn op_cbb2(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_d();
+    cpu.set_d(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 6,e
+#[allow(unused_variables)]
+fn op_cbb3(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_e();
+    cpu.set_e(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 6,h
+#[allow(unused_variables)]
+fn op_cbb4(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_h();
+    cpu.set_h(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 6,l
+#[allow(unused_variables)]
+fn op_cbb5(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_l();
+    cpu.set_l(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 6,(hl)
+#[allow(unused_variables)]
+fn op_cbb6(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = mmu.get8(cpu.get_hl());
+    mmu.set8(cpu.get_hl(), q & !(1 << p));
+
+    (16, 2)
+}
+
+/// res 6,a
+#[allow(unused_variables)]
+fn op_cbb7(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_a();
+    cpu.set_a(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 7,b
+#[allow(unused_variables)]
+fn op_cbb8(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_b();
+    cpu.set_b(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 7,c
+#[allow(unused_variables)]
+fn op_cbb9(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_c();
+    cpu.set_c(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 7,d
+#[allow(unused_variables)]
+fn op_cbba(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_d();
+    cpu.set_d(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 7,e
+#[allow(unused_variables)]
+fn op_cbbb(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_e();
+    cpu.set_e(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 7,h
+#[allow(unused_variables)]
+fn op_cbbc(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_h();
+    cpu.set_h(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 7,l
+#[allow(unused_variables)]
+fn op_cbbd(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_l();
+    cpu.set_l(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// res 7,(hl)
+#[allow(unused_variables)]
+fn op_cbbe(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = mmu.get8(cpu.get_hl());
+    mmu.set8(cpu.get_hl(), q & !(1 << p));
+
+    (16, 2)
+}
+
+/// res 7,a
+#[allow(unused_variables)]
+fn op_cbbf(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_a();
+    cpu.set_a(q & !(1 << p));
+
+    (8, 2)
+}
+
+/// set 0,b
+#[allow(unused_variables)]
+fn op_cbc0(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_b();
+    cpu.set_b(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 0,c
+#[allow(unused_variables)]
+fn op_cbc1(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_c();
+    cpu.set_c(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 0,d
+#[allow(unused_variables)]
+fn op_cbc2(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_d();
+    cpu.set_d(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 0,e
+#[allow(unused_variables)]
+fn op_cbc3(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_e();
+    cpu.set_e(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 0,h
+#[allow(unused_variables)]
+fn op_cbc4(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_h();
+    cpu.set_h(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 0,l
+#[allow(unused_variables)]
+fn op_cbc5(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_l();
+    cpu.set_l(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 0,(hl)
+#[allow(unused_variables)]
+fn op_cbc6(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = mmu.get8(cpu.get_hl());
+    mmu.set8(cpu.get_hl(), q | (1 << p));
+
+    (16, 2)
+}
+
+/// set 0,a
+#[allow(unused_variables)]
+fn op_cbc7(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 0;
+    let q = cpu.get_a();
+    cpu.set_a(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 1,b
+#[allow(unused_variables)]
+fn op_cbc8(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_b();
+    cpu.set_b(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 1,c
+#[allow(unused_variables)]
+fn op_cbc9(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_c();
+    cpu.set_c(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 1,d
+#[allow(unused_variables)]
+fn op_cbca(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_d();
+    cpu.set_d(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 1,e
+#[allow(unused_variables)]
+fn op_cbcb(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_e();
+    cpu.set_e(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 1,h
+#[allow(unused_variables)]
+fn op_cbcc(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_h();
+    cpu.set_h(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 1,l
+#[allow(unused_variables)]
+fn op_cbcd(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_l();
+    cpu.set_l(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 1,(hl)
+#[allow(unused_variables)]
+fn op_cbce(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = mmu.get8(cpu.get_hl());
+    mmu.set8(cpu.get_hl(), q | (1 << p));
+
+    (16, 2)
+}
+
+/// set 1,a
+#[allow(unused_variables)]
+fn op_cbcf(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 1;
+    let q = cpu.get_a();
+    cpu.set_a(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 2,b
+#[allow(unused_variables)]
+fn op_cbd0(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_b();
+    cpu.set_b(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 2,c
+#[allow(unused_variables)]
+fn op_cbd1(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_c();
+    cpu.set_c(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 2,d
+#[allow(unused_variables)]
+fn op_cbd2(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_d();
+    cpu.set_d(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 2,e
+#[allow(unused_variables)]
+fn op_cbd3(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_e();
+    cpu.set_e(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 2,h
+#[allow(unused_variables)]
+fn op_cbd4(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_h();
+    cpu.set_h(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 2,l
+#[allow(unused_variables)]
+fn op_cbd5(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_l();
+    cpu.set_l(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 2,(hl)
+#[allow(unused_variables)]
+fn op_cbd6(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = mmu.get8(cpu.get_hl());
+    mmu.set8(cpu.get_hl(), q | (1 << p));
+
+    (16, 2)
+}
+
+/// set 2,a
+#[allow(unused_variables)]
+fn op_cbd7(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 2;
+    let q = cpu.get_a();
+    cpu.set_a(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 3,b
+#[allow(unused_variables)]
+fn op_cbd8(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_b();
+    cpu.set_b(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 3,c
+#[allow(unused_variables)]
+fn op_cbd9(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_c();
+    cpu.set_c(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 3,d
+#[allow(unused_variables)]
+fn op_cbda(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_d();
+    cpu.set_d(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 3,e
+#[allow(unused_variables)]
+fn op_cbdb(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_e();
+    cpu.set_e(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 3,h
+#[allow(unused_variables)]
+fn op_cbdc(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_h();
+    cpu.set_h(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 3,l
+#[allow(unused_variables)]
+fn op_cbdd(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_l();
+    cpu.set_l(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 3,(hl)
+#[allow(unused_variables)]
+fn op_cbde(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = mmu.get8(cpu.get_hl());
+    mmu.set8(cpu.get_hl(), q | (1 << p));
+
+    (16, 2)
+}
+
+/// set 3,a
+#[allow(unused_variables)]
+fn op_cbdf(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 3;
+    let q = cpu.get_a();
+    cpu.set_a(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 4,b
+#[allow(unused_variables)]
+fn op_cbe0(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_b();
+    cpu.set_b(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 4,c
+#[allow(unused_variables)]
+fn op_cbe1(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_c();
+    cpu.set_c(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 4,d
+#[allow(unused_variables)]
+fn op_cbe2(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_d();
+    cpu.set_d(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 4,e
+#[allow(unused_variables)]
+fn op_cbe3(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_e();
+    cpu.set_e(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 4,h
+#[allow(unused_variables)]
+fn op_cbe4(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_h();
+    cpu.set_h(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 4,l
+#[allow(unused_variables)]
+fn op_cbe5(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_l();
+    cpu.set_l(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 4,(hl)
+#[allow(unused_variables)]
+fn op_cbe6(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = mmu.get8(cpu.get_hl());
+    mmu.set8(cpu.get_hl(), q | (1 << p));
+
+    (16, 2)
+}
+
+/// set 4,a
+#[allow(unused_variables)]
+fn op_cbe7(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 4;
+    let q = cpu.get_a();
+    cpu.set_a(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 5,b
+#[allow(unused_variables)]
+fn op_cbe8(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_b();
+    cpu.set_b(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 5,c
+#[allow(unused_variables)]
+fn op_cbe9(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_c();
+    cpu.set_c(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 5,d
+#[allow(unused_variables)]
+fn op_cbea(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_d();
+    cpu.set_d(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 5,e
+#[allow(unused_variables)]
+fn op_cbeb(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_e();
+    cpu.set_e(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 5,h
+#[allow(unused_variables)]
+fn op_cbec(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_h();
+    cpu.set_h(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 5,l
+#[allow(unused_variables)]
+fn op_cbed(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_l();
+    cpu.set_l(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 5,(hl)
+#[allow(unused_variables)]
+fn op_cbee(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = mmu.get8(cpu.get_hl());
+    mmu.set8(cpu.get_hl(), q | (1 << p));
+
+    (16, 2)
+}
+
+/// set 5,a
+#[allow(unused_variables)]
+fn op_cbef(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 5;
+    let q = cpu.get_a();
+    cpu.set_a(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 6,b
+#[allow(unused_variables)]
+fn op_cbf0(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_b();
+    cpu.set_b(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 6,c
+#[allow(unused_variables)]
+fn op_cbf1(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_c();
+    cpu.set_c(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 6,d
+#[allow(unused_variables)]
+fn op_cbf2(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_d();
+    cpu.set_d(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 6,e
+#[allow(unused_variables)]
+fn op_cbf3(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_e();
+    cpu.set_e(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 6,h
+#[allow(unused_variables)]
+fn op_cbf4(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_h();
+    cpu.set_h(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 6,l
+#[allow(unused_variables)]
+fn op_cbf5(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_l();
+    cpu.set_l(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 6,(hl)
+#[allow(unused_variables)]
+fn op_cbf6(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = mmu.get8(cpu.get_hl());
+    mmu.set8(cpu.get_hl(), q | (1 << p));
+
+    (16, 2)
+}
+
+/// set 6,a
+#[allow(unused_variables)]
+fn op_cbf7(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 6;
+    let q = cpu.get_a();
+    cpu.set_a(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 7,b
+#[allow(unused_variables)]
+fn op_cbf8(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_b();
+    cpu.set_b(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 7,c
+#[allow(unused_variables)]
+fn op_cbf9(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_c();
+    cpu.set_c(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 7,d
+#[allow(unused_variables)]
+fn op_cbfa(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_d();
+    cpu.set_d(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 7,e
+#[allow(unused_variables)]
+fn op_cbfb(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_e();
+    cpu.set_e(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 7,h
+#[allow(unused_variables)]
+fn op_cbfc(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_h();
+    cpu.set_h(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 7,l
+#[allow(unused_variables)]
+fn op_cbfd(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_l();
+    cpu.set_l(q | (1 << p));
+
+    (8, 2)
+}
+
+/// set 7,(hl)
+#[allow(unused_variables)]
+fn op_cbfe(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = mmu.get8(cpu.get_hl());
+    mmu.set8(cpu.get_hl(), q | (1 << p));
+
+    (16, 2)
+}
+
+/// set 7,a
+#[allow(unused_variables)]
+fn op_cbff(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let p = 7;
+    let q = cpu.get_a();
+    cpu.set_a(q | (1 << p));
+
+    (8, 2)
+}
+
+/// rlca
+#[allow(unused_variables)]
+fn op_0007(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_a();
+    let c = v & 0x80 != 0;
+    let v = v.rotate_left(1);
+    let z = v == 0;
+    cpu.set_a(v);
+    cpu.set_zf(false);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (4, 1)
+}
+
+/// rrca
+#[allow(unused_variables)]
+fn op_000f(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_a();
+    let c = v & 1 != 0;
+    let v = v.rotate_right(1);
+    let z = v == 0;
+    cpu.set_a(v);
+    cpu.set_zf(false);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (4, 1)
+}
+
+/// rla
+#[allow(unused_variables)]
+fn op_0017(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_a();
+    let c = v & 0x80 != 0;
+    let v = v.wrapping_shl(1);
+    let v = v | if cpu.get_cf() { 1 } else { 0 };
+    cpu.set_a(v);
+    cpu.set_zf(false);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (4, 1)
+}
+
+/// rra
+#[allow(unused_variables)]
+fn op_001f(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    let v = cpu.get_a();
+    let c = v & 1 != 0;
+    let v = v.wrapping_shr(1);
+    let v = v | if cpu.get_cf() { 0x80 } else { 0 };
+    cpu.set_a(v);
+    cpu.set_zf(false);
+    cpu.set_nf(false);
+    cpu.set_hf(false);
+    cpu.set_cf(c);
+
+    (4, 1)
+}
+
+/// halt
+#[allow(unused_variables)]
+fn op_0076(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    cpu.halt();
+
+    (4, 1)
+}
+
+/// stop 0
+#[allow(unused_variables)]
+fn op_0010(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    cpu.stop();
+
+    (4, 2)
+}

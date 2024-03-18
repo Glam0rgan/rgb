@@ -243,4 +243,15 @@ impl Cpu {
         self.set_sp(self.get_sp().wrapping_add(2));
         mmu.get16(p);
     }
+
+    /// Switch the CPU state to halting.
+    pub fn halt(&mut self) {
+        debug!("Halted");
+        // TODO
+    }
+
+    /// Stop the CPU.
+    pub fn stop(&self){
+        // TODO
+    }
 }
