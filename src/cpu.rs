@@ -1,4 +1,10 @@
+use crate::device::Device;
+use crate::ic::Ic;
+use crate::inst::decode;
+use crate::mmu::Mmu;
+use log::*;
 
+use alloc::fmt;
 
 // CPU state
 #[derive(Clone)]
@@ -33,6 +39,24 @@ impl Cpu {
             sp : 0,  
             ime : true,
             halt : true,
+        }
+    }
+
+    /// Execute a single instruction.
+    ///
+    /// The function fetches an instruction code from the memory,
+    /// decodes it, and updates the CPU/memory state accordingly.
+    /// The return value is the number of clock cycles consumed by the instruction.
+    /// If the CPU is in the halt state, the function does nothing but returns a fixed clock cycle.
+    pub fn execute(&mut self, mmu: &mut Mmu) -> usize {
+        if self.halt {
+            4
+        } 
+        else {
+            let (code, arg) = self.fetch(mmu);
+            let (time, size) = decode(code, arg, self, mmu);
+            self.set_pc(self.get_pc().wrapping_add(size as u16));
+            time
         }
     }
 
@@ -253,5 +277,70 @@ impl Cpu {
     /// Stop the CPU.
     pub fn stop(&self){
         // TODO
+    }
+
+    /// Disable interrupts to this CPU.
+    pub fn disable_interrupt(&mut self) {
+        debug!("Disable interrupt");
+        self.ime = false;
+    }
+
+    /// Enable interrupts to this CPU.
+    pub fn enable_interrupt(&mut self) {
+        debug!("Enable interrupt");
+        self.ime = true;
+    }
+
+    /// Check if pending interrupts in the interrupt controller,
+    /// and process them if any.
+    pub fn check_interrupt(&mut self, mmu: &mut Mmu, ic: &Device<Ic>){
+        if !self.ime {
+            if self.halt {
+                // If HALT is executed while interrupt is disabled,
+                // the interrupt wakes up CPU without being consumed.
+                if let Some(value) = ic.borrow_mut().peek() {
+                    debug!();
+                    self.halt = false;
+                }
+            }
+
+            0
+        }
+        else{
+            let value = match ic.borrow_mut().poll() {
+                Some(value) => value,
+                None => return 0,
+            };
+
+            debug!();
+
+            self.interrupted(mmu, value);
+
+            self.halt = false;
+
+            16
+        }
+    }
+
+    fn interrupted(&mut self, mmu: &mut Mmu, value: u8) {
+        self.disable_interrupt();
+
+        self.push(mmu, self.get_pc());
+        self.set_pc(value as u16);
+    }
+
+    /// Fetches an opcode from the memory and returns it with its length.
+    pub fn fetch(&self, mmu: &Mmu) -> (u16, u16) {
+        let pc = self.get_pc();
+
+        let fb = mmu.get8(pc);
+
+        if fb == 0xcb {
+            let sb = mmu.get8(pc + 1);
+            (0xcb00 | sb as u16, 2)
+        }
+        else{
+            (fb as u16, 1)
+        }
     }
 }

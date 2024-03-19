@@ -5976,3 +5976,19 @@ fn op_0010(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
 
     (4, 2)
 }
+
+/// di
+#[allow(unused_variables)]
+fn op_00f3(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    cpu.disable_interrupt();
+
+    (4, 1)
+}
+
+/// ei
+#[allow(unused_variables)]
+fn op_00fb(arg: u16, cpu: &mut Cpu, mmu: &mut Mmu) -> (usize, usize) {
+    cpu.enable_interrupt();
+
+    (4, 1)
+}
